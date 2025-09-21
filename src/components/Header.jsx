@@ -86,10 +86,8 @@ const Header = () => {
   // Handle Logo Click → Go to Homepage
   const handleLogoClick = () => {
     if (location.pathname !== '/') {
-      // Will be handled by Link to="/"
       return;
     }
-    // If on homepage, scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -97,47 +95,47 @@ const Header = () => {
     <header className="header" role="banner">
       <div className="container">
         <div className="header-content">
-          {/* Logo - Image Only */}
+          {/* Logo */}
           <Link 
             to="/" 
             className="logo" 
             onClick={handleLogoClick} 
             aria-label="Build Softech Home"
           >
-            <img 
-              src="./logo.png" 
-              alt="Build Softech Logo"
-              className="logo-image"
-            />
-            <div className="footer-logo-text">
+            <div className="logo-wrapper">
+              <img 
+                src="./logo.png" 
+                alt="Build Softech Logo"
+                className="logo-image"
+              />
+              <div className="logo-text">
                 <h3>Build Softech</h3>
+                <span>Research Platform</span>
               </div>
+            </div>
           </Link>
 
-          {/* Navigation Menu */}
-          <nav
-            className={`nav ${isMenuOpen ? 'nav-open' : ''}`}
-            role="navigation"
-            aria-label="Main Navigation"
-          >
-            <ul className="nav-list">
-              {navItems.map(({ href, label }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    className={`nav-link ${activeSection === href ? 'active' : ''}`}
-                    onClick={(e) => handleNavClick(e, href)}
-                    aria-current={activeSection === href ? 'page' : undefined}
-                  >
-                    {label}
-                    {activeSection === href && <span className="link-underline"></span>}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            
-            {/* Mobile Auth Buttons */}
-            <div className="nav-buttons mobile-buttons">
+          {/* Desktop Navigation + Auth Buttons */}
+          <div className="desktop-nav">
+            <nav className="nav">
+              <ul className="nav-list">
+                {navItems.map(({ href, label }) => (
+                  <li key={href}>
+                    <a
+                      href={href}
+                      className={`nav-link ${activeSection === href ? 'active' : ''}`}
+                      onClick={(e) => handleNavClick(e, href)}
+                      aria-current={activeSection === href ? 'page' : undefined}
+                    >
+                      {label}
+                      {activeSection === href && <span className="link-underline"></span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className="nav-buttons desktop-buttons">
               <Link
                 to="/login"
                 className="btn btn-secondary"
@@ -155,26 +153,6 @@ const Header = () => {
                 Register
               </Link>
             </div>
-          </nav>
-
-          {/* Desktop Auth Buttons */}
-          <div className="nav-buttons desktop-buttons">
-            <Link
-              to="/login"
-              className="btn btn-secondary log"
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Login to your account"
-            >
-              Login
-            </Link>
-            <Link
-              to="/register"
-              className="btn btn-primary"
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Create a new account"
-            >
-              Register
-            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -183,12 +161,54 @@ const Header = () => {
             onClick={toggleMenu}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
-            aria-controls="main-nav"
+            aria-controls="mobile-nav"
           >
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
           </button>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className="mobile-menu" id="mobile-nav">
+              <nav className="mobile-nav">
+                <ul className="mobile-nav-list">
+                  {navItems.map(({ href, label }) => (
+                    <li key={href}>
+                      <a
+                        href={href}
+                        className={`nav-link ${activeSection === href ? 'active' : ''}`}
+                        onClick={(e) => handleNavClick(e, href)}
+                        aria-current={activeSection === href ? 'page' : undefined}
+                      >
+                        {label}
+                        {activeSection === href && <span className="link-underline"></span>}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div className="mobile-auth">
+                <Link
+                  to="/login"
+                  className="btn btn-secondary btn-block"
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label="Login to your account"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="btn btn-primary btn-block"
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label="Create a new account"
+                >
+                  Register
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
