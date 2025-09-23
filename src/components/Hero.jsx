@@ -32,7 +32,7 @@ const Hero = () => {
       </div>
 
       <div className="container">
-        <div className={`hero-content ${isVisible ? 'fade-in' : ''}`}>
+        <div className={`hero-content hero-text ${isVisible ? 'fade-in' : ''}`}>
           <h1 id="hero-title" className="hero-title">
             Publish with <span className="highlight">Confidence</span>
           </h1>
@@ -92,9 +92,18 @@ const Hero = () => {
           </div>
 
           <div className="hero-stats">
-            <div className="stat"><strong>500+</strong> Published Papers</div>
-            <div className="stat"><strong>200+</strong> Expert Reviewers</div>
-            <div className="stat"><strong>98%</strong> Researcher Satisfaction</div>
+            <div className="stat">
+              <strong>500+</strong>
+              <span>Published Papers</span>
+            </div>
+            <div className="stat">
+              <strong>200+</strong>
+              <span>Expert Reviewers</span>
+            </div>
+            <div className="stat">
+              <strong>98%</strong>
+              <span>Researcher Satisfaction</span>
+            </div>
           </div>
         </div>
       </div>
