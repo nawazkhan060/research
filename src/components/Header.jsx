@@ -53,10 +53,7 @@ const Header = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#contact', label: 'Contact' },
-  ];
+
 
   // Handle smooth scroll for anchor links (only on homepage)
   const handleNavClick = (e, href) => {
@@ -223,4 +220,5 @@ const Header = () => {
 };
 
 export default Header;
+
 
