@@ -3,11 +3,13 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   padding-top: 80px;
   position: relative;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-align: center;
 }
 
 /* Floating Background Dots */
@@ -69,6 +71,10 @@
 
 .hero-content {
   max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Fade-in Animation */
@@ -89,7 +95,7 @@
   font-weight: 800;
   line-height: 1.1;
   color: #0f172a;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.25rem;
   letter-spacing: -0.5px;
   position: relative;
 }
@@ -97,6 +103,7 @@
 .hero-title .highlight {
   color: #4f46e5;
   position: relative;
+  display: inline-block;
 }
 
 .hero-title .highlight::after {
@@ -124,8 +131,9 @@
   color: #475569;
   margin-bottom: 2.5rem;
   font-weight: 400;
-  position: relative;
-  z-index: 1;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Buttons */
@@ -134,8 +142,8 @@
   gap: 1.25rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-primary,
@@ -216,8 +224,8 @@
   flex-wrap: wrap;
   font-size: 1rem;
   color: #64748b;
-  position: relative;
-  z-index: 1;
+  justify-content: center;
+  align-items: center;
   animation: fadeIn 1s ease forwards;
   opacity: 0;
 }
@@ -235,24 +243,10 @@
 
 .stat {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  position: relative;
-}
-
-.stat::after {
-  content: '';
-  position: absolute;
-  right: -1.25rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 12px;
-  background: #cbd5e1;
-}
-
-.hero-stats .stat:last-child::after {
-  display: none;
+  gap: 0.25rem;
+  padding: 0 1rem;
 }
 
 .stat strong {
@@ -270,6 +264,7 @@
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 3rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -280,12 +275,13 @@
 
   .hero-title {
     font-size: 2.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
   }
 
   .hero-subtitle {
     font-size: 1.1rem;
     margin-bottom: 2rem;
+    padding: 0 1rem;
   }
 
   .hero-actions {
@@ -312,14 +308,9 @@
   }
 
   .hero-stats {
-    justify-content: center;
     gap: 1.5rem;
     flex-direction: column;
-    align-items: center;
-  }
-
-  .stat::after {
-    display: none;
+    padding: 0 1rem;
   }
 }
 
@@ -335,6 +326,10 @@
   .btn-primary,
   .btn-text {
     padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .hero-subtitle {
     font-size: 1rem;
   }
 }
