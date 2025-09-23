@@ -55,8 +55,6 @@ const Header = () => {
 
   const navItems = [
     { href: '#home', label: 'Home' },
-    { href: '#why-choose-us', label: 'Why Choose Us' },
-    { href: '#why-publish', label: 'Why Publish' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -225,3 +223,4 @@ const Header = () => {
 };
 
 export default Header;
+
